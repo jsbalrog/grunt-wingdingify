@@ -15,6 +15,8 @@ module.exports = function (grunt) {
 
   grunt.registerMultiTask('wingdingify', 'A grunt plugin to wingdingify your javascript source code', function () {
 
+    var wingdings = grunt.file.readJSON(this.options().src);
+
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       punctuation: '.',
@@ -37,11 +39,26 @@ module.exports = function (grunt) {
         return grunt.file.read(filepath);
       }).join(grunt.util.normalizelf(options.separator));
 
+      var srcReturnless = src.replace(/(\r\n|\n|\r)/gm, '');
+      var srcSpaceless = srcReturnless.replace(/\s+/g, '');
+
+      var srcArray = srcSpaceless.toLowerCase().slice();
+      var destArray = [];
+      var dest = '';
+      for(var j = 0; j < srcArray.length; j++) {
+        if(wingdings[srcArray[j]] !== undefined) {
+          destArray.push(wingdings[srcArray[j]]);
+        } else {
+          destArray.push(srcArray[j]);
+        }
+      }
+
+      dest = destArray.join('');
       // Handle options.
-      src += options.punctuation;
+      dest += options.punctuation;
 
       // Write the destination file.
-      grunt.file.write(file.dest, src);
+      grunt.file.write(file.dest, dest.replace(/\s+/g, ''));
 
       // Print a success message.
       grunt.log.writeln('File "' + file.dest + '" created.');
