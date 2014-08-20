@@ -1,6 +1,6 @@
 {
   "name": "grunt-wingdingify",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A grunt plugin to wingdingify your javascript source code",
   "homepage": "https://github.com/jsbalrog/grunt-wingdingify",
   "repository": "https://github.com/jsbalrog/grunt-wingdingify",
