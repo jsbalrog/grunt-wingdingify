@@ -34,7 +34,7 @@ module.exports = function (grunt) {
     // Configuration to be run (and then tested).
     wingdingify: {
       options: {
-        src: 'tasks/wingdings.json'
+        src: 'node_modules/grunt-wingdingify/wingdings.json'
       },
       default_options: {
         options: {
