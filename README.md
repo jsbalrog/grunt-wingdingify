@@ -1,6 +1,8 @@
 # grunt-wingdingify
 
-> A grunt plugin to wingdingify your javascript source code
+Minifiying's good, uglifying's better, wingdingifying's all kinds of awesome!!
+This is a plugin to obfuscate your source code so bad that the compiler doesn't
+even recognize it.
 
 ## Getting Started
 This plugin requires Grunt.
